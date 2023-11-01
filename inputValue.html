@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="containerInput">
+        <label for="addProj">Project Name</label> <br>
+        <input type="text" name="addProj" id="inputValue">
+        <button onclick="addProject()" id="inputBtn">ADD</button>
+        <ul id="list"></ul>
+    </div>
+    <script>
+
+        // Variables
+        let projectList = []
+        let inputValue = document.getElementById("inputValue");
+        let inputBtn = document.getElementById("inputBtn");
+        let containerInput = document.getElementById("containerInput");
+        let list = document.getElementById("list")
+
+        let EnterKey = inputValue.addEventListener("keypress", function(e) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                inputBtn.click() }
+            })
+        
+        function pushProjectToArray() {
+            if (inputValue.value != "") {
+            projectList.push(inputValue.value)}
+        }
+
+        function makeListFromArray() {
+
+            // For every array element
+            for (let i = 0; i < projectList.length; i++) {
+                const arrayElement = projectList[i];
+            // Create a "li" , append it to List, give text content = array
+                let li = document.createElement("li")
+                list.appendChild(li)
+                li.textContent = arrayElement
+            }
+        }
+
+        function cleanList() {
+             list.textContent = ""
+            
+        }
+
+        function addProject(){
+            cleanList()
+            pushProjectToArray()
+            makeListFromArray()
+            inputValue.value = ""
+            
+        }
+
+
+    </script>
+</body>
+
+</html>
