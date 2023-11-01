@@ -1,7 +1,5 @@
 # To-Do-List
-LIVE DEMO: 
-
-https://pulex94.github.io/To-Do-List/
+LIVE DEMO:  https://pulex94.github.io/To-Do-List/
 
 To do list from Odin Project
 01/11/2023
